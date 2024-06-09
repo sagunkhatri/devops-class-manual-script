@@ -19,7 +19,7 @@ git clone https://github.com/sshresthadh/devops-class.git
 # Server
 cd $HOME/devops-class/all_in_docker/server/
 tmux new-session -d -s server-term
-tmux send-keys 'npm update && npm install && npm run build && exit' C-m
+tmux send-keys 'npm install && npm run build && exit' C-m
 #tmux detach -s server-term
 
 # Client
@@ -27,6 +27,6 @@ cd $HOME/devops-class/all_in_docker/client/
 #adding legacy provider due to depreacated packaage
 #sed -i 's/"react-scripts start"'/"react-scripts --openssl-legacy-provider start"/ package.json
 tmux new-session -d -s client-term
-tmux send-keys 'npm update && npm install && exit' C-m
+tmux send-keys 'npm install && exit' C-m
 
 sed -ri 's/(\b[0-9]{1,3}\.){3}[0-9]{1,3}\b'/"$NEWIP"/ $HOME/devops-class/all_in_docker/client/.env
